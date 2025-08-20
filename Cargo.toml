@@ -18,7 +18,7 @@ path                    = "src/send.rs"
 [lib]
 name                    = "bpf"
 path                    = "src/bpf.rs"
-crate-type              = ["cdylib"]
+crate-type              = ["rlib"]
 
 [dependencies]
 const_format            = "0.2"

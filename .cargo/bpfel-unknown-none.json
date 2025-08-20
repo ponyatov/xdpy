@@ -13,5 +13,6 @@
     "executables": false,
     "panic-strategy": "abort",
     "stack-probes": { "kind": "none" },
-    "eh-frame-header": false
+    "eh-frame-header": false,
+    "supported-crate-types": ["rlib"]
 }

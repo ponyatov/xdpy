@@ -51,6 +51,16 @@
             "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false}
         },
         {
+            "label"          : "cargo: bpf",
+            "type"           : "shell",
+            "command"        : "cargo build --lib --features bpf --target bpfel-unknown-none -Zbuild-std",
+            "args"           : [],
+            "options"        : {"cwd": "${workspaceFolder}"},
+            "problemMatcher" : ["$rustc"],
+            "group"          : {"kind": "build", "isDefault": true },
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false}
+        },
+        {
             "label"          : "doxy: gen",
             "type"           : "shell",
             "group"          : {"kind": "build", "isDefault": true },

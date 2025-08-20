@@ -15,6 +15,11 @@ path                    = "src/recv.rs"
 name                    = "send"
 path                    = "src/send.rs"
 
+[lib]
+name                    = "bpf"
+path                    = "src/bpf.rs"
+crate-type              = ["cdylib"]
+
 [dependencies]
 const_format            = "0.2"
 nom                     = { version = "8.0", default-features = false}#, features = ["alloc"] }
@@ -26,6 +31,9 @@ memmap2                 = "0.9"
 [target.x86_64-unknown-linux-gnu.dependencies]
 #xdpilone                = "1.2"
 
+[target.bpfel-unknown-none.dependencies]
+aya = { version = "0.13", default-features = false}#features = ["async"] }
+
 [features]
 # hw
 pc                      = ["i5"]
@@ -35,3 +43,5 @@ i5                      = ["x86_64"]
 x86_64                  = ["linux"]
 # os
 linux                   = []
+# network
+bpf                     = []

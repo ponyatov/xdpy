@@ -769,7 +769,8 @@ let package:unit = //
 let requirements:unit = //
     touch $"src/{app}.ts"
     File.WriteAllText ("requirements.txt",$"
-autopep8 ply
+autopep8
+ply
 ")
     meld "requirements.txt"
 

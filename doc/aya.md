@@ -7,4 +7,4 @@
 https://aya-rs.dev/book/
 
 - https://github.com/aya-rs/aya
-- 
+- https://github.com/aya-rs/aya-template

@@ -6,7 +6,19 @@ jobs      = 2
 rustflags = ["--cfg", "feature=\"pc,linux\""]
 linker    = "x86_64-linux-gnu-gcc"
 
+# BPF target configuration
 [target.bpfel-unknown-none]
+linker = "llvm-link"
+rustflags = [
+    "-C", "panic=abort",
+    "-C", "opt-level=s",
+    "-C", "linker=llvm-link",
+    "-C", "lto",
+    "-Z", "unstable-options",  # For build-std feature
+]
+
+[alias]
+bpf = "build --features bpf --target bpfel-unknown-none"
 
 [source.crates-io]
 replace-with = 'ustc'

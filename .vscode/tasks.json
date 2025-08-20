@@ -1,0 +1,63 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label"          : "project: install",
+            "type"           : "shell",
+            "command"        : "make install",
+            "presentation"   : {"focus": true},
+            "problemMatcher" : []
+        },
+        {
+            "label"          : "project: update",
+            "type"           : "shell",
+            "command"        : "make update",
+            "presentation"   : {"focus": true},
+            "problemMatcher" : []
+        },
+        {
+            "label"          : "git: checkout .vscode",
+            "type"           : "shell",
+            "command"        : "git checkout .vscode/settings.json",
+            "presentation"   : {"showReuseMessage": false, "focus": false, "reveal": "silent", "close": true},
+            "problemMatcher" : []
+        },
+        {
+            "label"          : "AI: context",
+            "type"           : "shell",
+            "command"        : "make ai",
+            "problemMatcher" : [],
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false},
+            "group"          : {"kind": "build", "isDefault": true}
+        },
+        {
+            "label"          : "cargo: send",
+            "type"           : "shell",
+            "command"        : "cargo",
+            "args"           : ["watch","-x","run --bin send --features=pc --target x86_64-unknown-linux-gnu -- lib/${workspaceFolderBasename}.ini"],
+            "options"        : {"cwd": "${workspaceFolder}"},
+            "problemMatcher" : ["$rustc"],
+            "group"          : {"kind": "build", "isDefault": true },
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false}
+        },
+        {
+            "label"          : "cargo: recv",
+            "type"           : "shell",
+            "command"        : "cargo",
+            "args"           : ["watch","-x","run --bin recv --features=pc --target x86_64-unknown-linux-gnu -- lib/${workspaceFolderBasename}.ini"],
+            "options"        : {"cwd": "${workspaceFolder}"},
+            "problemMatcher" : ["$rustc"],
+            "group"          : {"kind": "build", "isDefault": true },
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false}
+        },
+        {
+            "label"          : "doxy: gen",
+            "type"           : "shell",
+            "group"          : {"kind": "build", "isDefault": true },
+            // "dependsOn"      : "CMake: build",
+            "command"        : "make doxy",
+            "problemMatcher" : [],
+            "presentation"   : {"showReuseMessage": false, "focus": true, "reveal": "silent", "close": false}
+        },
+    ]
+}

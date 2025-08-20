@@ -1,0 +1,15 @@
+[build]
+target    = "x86_64-unknown-linux-gnu"
+jobs      = 2
+
+[target.x86_64-unknown-linux-gnu]
+rustflags = ["--cfg", "feature=\"pc,linux\""]
+linker    = "x86_64-linux-gnu-gcc"
+
+[source.crates-io]
+replace-with = 'ustc'
+
+[source.ustc]
+registry = "sparse+https://mirrors.ustc.edu.cn/crates.io-index/"
+[source.tuna]
+registry = "sparse+https://mirrors.tuna.tsinghua.edu.cn/crates.io-index/"

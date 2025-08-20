@@ -22,4 +22,4 @@ while True:
         continue
     except KeyboardInterrupt:
         break
-    print(f"{task.decode()} {msg.decode()}")
+    print(f"{ts} {pid}/{cpu} {flags} {task.decode()} {msg.decode()}")

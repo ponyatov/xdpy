@@ -19,6 +19,19 @@ rustflags = [
 
 [alias]
 bpf = "build --features bpf --target bpfel-unknown-none"
+xdp = "build --bin xdp --target bpfel-unknown-none"
+tc = "build --bin tc --target bpfel-unknown-none"
+
+# eBPF environment configuration
+[env]
+BPF_CLANG = "clang"
+BPF_CFLAGS = "-O2 -g -Wall -target bpf"
+CARGO_CFG_BPF = "1"
+
+# eBPF build settings
+[target.bpfel-unknown-none.env]
+RUST_LOG = "debug"
+BPF_TARGET_DIR = "target/bpf"
 
 [source.crates-io]
 replace-with = 'ustc'

@@ -53,7 +53,7 @@
         {
             "label"          : "cargo: bpf",
             "type"           : "shell",
-            "command"        : "cargo build --lib --features bpf --target bpfel-unknown-none -Zbuild-std",
+            "command"        : "cargo bpf",
             "args"           : [],
             "options"        : {"cwd": "${workspaceFolder}"},
             "problemMatcher" : ["$rustc"],

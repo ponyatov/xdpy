@@ -4,12 +4,8 @@
 
 from bcc import BPF
 
-BPF_PROGRAM = r"""
-int hello(void *ctx) {
-  bpf_trace_printk("Hello world! clone() is calling\n");
-  return 0;
-}
-"""
+with open('src/hello.bpf.c') as bc:
+    BPF_PROGRAM = bc.read()
 
 b = BPF(text=BPF_PROGRAM)
 clone = b.get_syscall_fnname("clone")

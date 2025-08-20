@@ -1,8 +1,6 @@
 .PHONY: py
 py:     requirements.txt $(PY) $(PIP)
-$(PIP) install -U -r $<
-$(PIP): $(PY)
-	$(PY) install -U pip
-$(PY):  pyvenv.cfg
+	$(PIP) install -U -r $<
+$(PY) $(PIP):  pyvenv.cfg
 pyvenv.cfg:
 	python3 -m venv .

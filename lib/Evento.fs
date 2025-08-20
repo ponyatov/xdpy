@@ -88,6 +88,8 @@ let giti:unit = //
 *.exe
 node_modules/
 /target/
+*.pyc
+lib64
 !.gitignore
 """)
 
@@ -125,6 +127,7 @@ PROJECT_LOGO           = doc/logo.png
 
 let lib:unit = //
     mkdir "lib"
+    File.WriteAllText($"lib/.gitignore", "python*/\n!.gitignore\n")
     File.WriteAllText($"lib/{app}.ini", """#!/usr/bin/env shebang
 
 # line comment
@@ -331,6 +334,16 @@ nom                     = \"8.0\"
 libc    = \"0.2\"
 memmap2 = \"0.9\"
 
+[features]
+
+# hw
+pc              = [\"i5\"]
+# cpu
+i5              = [\"x86_64\"]
+# arch
+x86_64          = [\"linux\"]
+# os
+linux           = []
 ")
 
 // sdl2    = {version = \"0.38\", features = [\"ttf\",\"image\"], optional = true}
@@ -340,18 +353,6 @@ memmap2 = \"0.9\"
 // cortex-m-rt       = \"0.7\"
 // panic-semihosting = \"0.6\"
 
-// [features]
-
-// # hw
-// pc              = [\"i5\"]
-// # cpu
-// i5              = [\"x86_64\"]
-// # arch
-// x86_64          = [\"linux\"]
-// # os
-// linux           = []
-// # gui variant
-// sdl             = [\"dep:sdl2\"]
 // ")
     meld "Cargo.toml"
 
@@ -764,5 +765,12 @@ let package:unit = //
 }}
 ")
     spawn "npm i -g deno typescript"
+
+let requirements:unit = //
+    touch $"src/{app}.ts"
+    File.WriteAllText ("requirements.txt",$"
+autopep8 ply
+")
+    meld "requirements.txt"
 
 spawn COMMIT

@@ -12,3 +12,9 @@ The [[eBPF]] extension to BPF was created for top-level network traffic processi
 ## [[XDP]]
 
 - https://github.com/mikeroyal/eBPF-Guide
+
+## [[Python]]
+
+```sh
+sudo apt install -uy bpftool bpfcc-tools python3-bpfcc
+```

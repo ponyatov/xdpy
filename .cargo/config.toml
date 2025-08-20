@@ -18,14 +18,13 @@ rustflags = [
     "-C", "panic=abort",
     "-C", "opt-level=2",
     "-C", "target-cpu=generic",
-    "-C", "no-redzone",
-    "--target=.cargo/bpfel-unknown-none.json"
+    "-C", "no-redzone"
 ]
 
 [alias]
-bpf = "build --lib --features bpf --target bpfel-unknown-none"
-xdp = "build --bin xdp --target bpfel-unknown-none"
-tc = "build --bin tc --target bpfel-unknown-none"
+bpf = "build --lib --features bpf --target .cargo/bpfel-unknown-none.json"
+xdp = "build --bin xdp --target .cargo/bpfel-unknown-none.json"
+tc = "build --bin tc --target .cargo/bpfel-unknown-none.json"
 
 # eBPF environment configuration
 [env]

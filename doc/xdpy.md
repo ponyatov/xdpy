@@ -9,3 +9,4 @@ github: https://github.com/ponyatov/xdpy
 - base language: [[Rust/Rust|Rust]]
 - TODO: [[Python]] module
 
+![[xdpy/debug|debug]]

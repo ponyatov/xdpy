@@ -57,5 +57,3 @@ iface veth0 inet manual
     up ip link set veth0 up
     down ip link del veth0
 ```
-
-[[xdpy/aya]]

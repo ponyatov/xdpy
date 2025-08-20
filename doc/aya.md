@@ -1,7 +1,8 @@
 # aya
 ## library to build [[eBPF]] programs
 
-[[eBPF]]: extended Berkley Packet Filter
+- [[eBPF]]: extended Berkley Packet Filter
+- [[BPF and XDP Reference Guide]]
 
 https://aya-rs.dev/book/
 
